@@ -37,11 +37,11 @@ public class MIDIKeyboard implements KeyListener{
 		noteLabel.setHorizontalAlignment(JLabel.CENTER);
 		JFrame frame = new JFrame();
 		// 1. Set the default close operation of your JFrame to JFrame.EXIT_ON_CLOSE
-
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// 2. Add a key listener to your JFrame
-
+frame.addKeyListener(this);
 		// 3. Set your frame to be visible
-
+frame.setVisible(true);
 		frame.add(noteLabel);
 		frame.setPreferredSize(new Dimension(500,500));
 		frame.pack();
@@ -55,12 +55,16 @@ public class MIDIKeyboard implements KeyListener{
 		System.out.println(keyCode);
 		
 		// 4. if keyboardRowQtoP contains keyCode...
-
+if(keyboardRowQtoP.contains(keyCode)) {
+	playNote(keyCode,keyboardRowQtoP,piano);
+}
 			// 5. call playNote() with keyCode, keyboardRowQtoP, and piano as the arguments
 
 
 		// 9. if keyboardRowAtoL contains keyCode...
-
+if(keyboardRowAtoL.contains(keyCode)) {
+	playNote(keyCode,keyboardRowAtoL,piano);
+}
 			// 10. call playNote() with keyCode, keyboardRowAtoL, and piano as the arguments
 
 

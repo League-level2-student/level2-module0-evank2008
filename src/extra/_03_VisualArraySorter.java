@@ -1,5 +1,7 @@
 package extra;
 
+import java.util.Random;
+
 import processing.core.PApplet;
 
 /*
@@ -40,20 +42,36 @@ import processing.core.PApplet;
 public class _03_VisualArraySorter extends PApplet {
     static final int WIDTH = 600;
     static final int HEIGHT = 400;
-
+    int[] rex;
     @Override
     public void settings() {
-        
+        size(500,500);
     }
 
     @Override
     public void setup() {
-        
+        rex = new int[50];
+        Random ran = new Random();
+        for(int i = 0; i<50;i++) {
+        	rex[i]=ran.nextInt(400)+20;
+        }
+        noStroke();
     }
 
     @Override
     public void draw() {
-        
+        background(200,255,180);
+        fill(180,200,255);
+        for(int i = 0; i<50;i++) {
+        	rect((500*i/rex.length),500,500/rex.length,(-rex[i]));
+        }
+        stepSort(rex);
+        if(mousePressed) {
+        	Random ran = new Random();
+        	 for(int i = 0; i<50;i++) {
+             	rex[i]=ran.nextInt(500)+1;
+             }
+        }
     }
 
     static public void main(String[] passedArgs) {

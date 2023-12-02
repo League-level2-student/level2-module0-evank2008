@@ -1,5 +1,6 @@
 package arrays;
 import processing.core.PApplet;
+
 import processing.core.PImage;
 
 /*
@@ -8,7 +9,7 @@ import processing.core.PImage;
  * In this class:
  * 1. Declare a PImage array variable as a member variable in this class.
  *    DO NOT initialize it.
- * 
+ 
  * 2. In the initializePaintings() method, initialize the PImage array to
  *    contain 4 images.
  * 
@@ -50,18 +51,29 @@ public class _03_VanGogh extends PApplet {
     PImage canvas;
     PImage paintbrushCursor;
     boolean initializeCanvas = true;
-    
+    int currentImage;
     /*
      * Write your code below
      */
+    PImage[] pim;
     Brush brush;
     
     void initializePaintings() {
-        
+        pim = new PImage[4];
+        pim[0]=loadImage("painterOnRoad.jpg");
+        pim[1]=loadImage("starryNight.jpg");
+        pim[2]=loadImage("strawHatPortrait.jpg");
+        pim[3]=loadImage("wheatField.jpg");
+        currentImage=0;
+        brush.setNewPainting(pim[currentImage]);
     }
     
     void selectNextPainting() {
-        
+        currentImage++;
+        if(currentImage>3) {
+        	currentImage = 0;
+        }
+        brush.setNewPainting(pim[currentImage]);
     }
 
     @Override
