@@ -67,7 +67,9 @@ if(keyboardRowAtoL.contains(keyCode)) {
 }
 			// 10. call playNote() with keyCode, keyboardRowAtoL, and piano as the arguments
 
-
+if(keyboardRowZtoM.contains(keyCode)) {
+	playNote(keyCode,keyboardRowZtoM,drums);
+}
 		// 13. if keyboardRowZtoM contains keyCode...
 
 			// 14. call playNote() with keyCode, keyboardRowZtoM, and drums as the arguments
@@ -79,7 +81,21 @@ if(keyboardRowAtoL.contains(keyCode)) {
 	public void keyReleased(KeyEvent e) {
 		int keyCode = e.getKeyCode();
 		lastKey = 0;
-		
+		if(keyboardRowQtoP.contains(keyCode)) {
+			stopNote(keyCode,keyboardRowQtoP,piano);
+		}
+					// 5. call playNote() with keyCode, keyboardRowQtoP, and piano as the arguments
+
+
+				// 9. if keyboardRowAtoL contains keyCode...
+		if(keyboardRowAtoL.contains(keyCode)) {
+			stopNote(keyCode,keyboardRowAtoL,piano);
+		}
+					// 10. call playNote() with keyCode, keyboardRowAtoL, and piano as the arguments
+
+		if(keyboardRowZtoM.contains(keyCode)) {
+			stopNote(keyCode,keyboardRowZtoM,drums);
+		}
 		// 6. if keyboardRowQtoP contains keyCode...
 
 			// 7. call stopNote() with keyCode, keyboardRowQtoP, and piano as the arguments
